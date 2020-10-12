@@ -3,7 +3,11 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import './style/theme/index.css'
+import ElementUI from 'element-ui';
+
 Vue.config.productionTip = false;
+Vue.use(ElementUI);
 
 new Vue({
   router,
