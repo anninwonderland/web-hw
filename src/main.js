@@ -3,6 +3,7 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 
+import './style/element_ui.scss'
 import './style/theme/index.css'
 import ElementUI from 'element-ui';
 
