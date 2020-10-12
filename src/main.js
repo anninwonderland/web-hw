@@ -6,6 +6,9 @@ import store from "./store";
 import './style/theme/index.css'
 import ElementUI from 'element-ui';
 
+import './assets/fonts.css';
+import './assets/main.scss';
+
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 
