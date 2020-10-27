@@ -164,14 +164,17 @@ name: "List",
 
   &__item {
     display: flex;
-    margin-top: 80px;
+    margin-top: 120px;
+    &:first-of-type {
+      margin-top: 40px;
+    }
   }
 }
 
 .film {
   width: 100%;
   margin-left: 60px;
-  padding: 20px 0;
+  padding: 10px 0;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -201,6 +204,7 @@ name: "List",
     font-weight: normal;
   }
   &__desc {
+    width: 90%;
     font-size: 16px;
     line-height: 22px;
     text-align: left;
