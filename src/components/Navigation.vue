@@ -1,6 +1,6 @@
 <template>
   <el-row class="nav_row">
-    <el-col :span="22" :offset="2">
+    <el-col :span="18" :offset="3">
       <el-menu
         :default-active="activeIndex"
         class="nav_menu"
@@ -10,16 +10,16 @@
         text-color="#000000"
         active-text-color="#ED6862"
       >
-        <el-menu-item index="1">О проекте</el-menu-item>
-        <el-menu-item index="2">Статьи</el-menu-item>
-        <el-submenu index="3">
+        <el-menu-item index="about">О проекте</el-menu-item>
+        <el-menu-item index="articles">Статьи</el-menu-item>
+        <el-submenu index="films">
           <template slot="title">Фильмы</template>
-          <el-menu-item index="3-1">Поиск</el-menu-item>
-          <el-menu-item index="3-2">Каталог</el-menu-item>
-          <el-menu-item index="3-3">Рекомендательная система</el-menu-item>
+          <el-menu-item index="films/search">Поиск</el-menu-item>
+          <el-menu-item index="films/lest">Каталог</el-menu-item>
+          <el-menu-item index="films/recommendations">Рекомендательная система</el-menu-item>
         </el-submenu>
-        <el-menu-item index="4">Режиссеры</el-menu-item>
-        <el-menu-item index="5">Контакты</el-menu-item>
+        <el-menu-item index="producers">Режиссеры</el-menu-item>
+        <el-menu-item index="contacts">Контакты</el-menu-item>
       </el-menu>
     </el-col>
   </el-row>
@@ -34,8 +34,10 @@ export default {
     };
   },
   methods: {
-    handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+    handleSelect(key) {
+      if (this.$route.path !== `/${key}`) {
+        this.$router.push(`/${key}`)
+      }
     },
   },
 };

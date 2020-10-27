@@ -1,6 +1,6 @@
 <template>
   <el-row type="flex" class="header">
-    <el-col :span="12" :offset="2">
+    <el-col :span="12" :offset="3">
       <div class="header__logo">
         <img class="header__logo__img" src="../assets/img/logo.png" />
         <p class="header__logo__caption">
@@ -9,7 +9,7 @@
         </p>
       </div>
     </el-col>
-    <el-col :span="8">
+    <el-col :span="6">
       <el-row>
         <div class="header__info">
           <div>
@@ -52,7 +52,7 @@ export default {
 <style scoped lang="scss">
 .header {
   height: 126px;
-  margin: 32px auto;
+  margin: 40px auto 20px;
 }
 
 .header__logo {
