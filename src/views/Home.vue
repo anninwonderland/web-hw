@@ -7,18 +7,21 @@
         <router-view></router-view>
       </el-col>
     </el-row>
+    <Footer />
   </div>
 </template>
 
 <script>
 import Navigation from "@/components/Navigation.vue";
 import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer";
 
 export default {
   name: "Home",
   components: {
     Header,
-    Navigation
+    Navigation,
+    Footer
   }
 };
 </script>
