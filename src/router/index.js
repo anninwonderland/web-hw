@@ -6,6 +6,7 @@ import Articles from "@/components/Articles";
 import Search from "@/components/films/Search";
 import List from "@/components/films/List";
 import Producers from "@/components/Producers";
+import Contacts from "@/components/Contacts";
 
 Vue.use(VueRouter);
 
@@ -49,7 +50,7 @@ const routes = [
       {
         path: "/contacts",
         name: "Contacts",
-        component: Articles
+        component: Contacts
       }
     ]
   },

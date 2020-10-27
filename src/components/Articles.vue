@@ -1,14 +1,17 @@
 <template>
-  <div class="section">
-    <div class="card" v-for="(card, index) in cards">
-      <div class="card__img">
-        <div class="overlay"></div>
-        <img :src="require(`@/assets/img/articles/${index + 1}.png`)">
-        <p class="card__title">{{ card.title }}</p>
-        <div class="card__tags">
-          <span class="card__tag" v-for="tag in card.tags">#{{ tag.label }}</span>
+  <div>
+    <p class="title">Статьи</p>
+    <div class="section">
+      <div class="card" v-for="(card, index) in cards">
+        <div class="card__img">
+          <div class="overlay"></div>
+          <img :src="require(`@/assets/img/articles/${index + 1}.png`)">
+          <p class="card__title">{{ card.title }}</p>
+          <div class="card__tags">
+            <span class="card__tag" v-for="tag in card.tags">#{{ tag.label }}</span>
+          </div>
+          <p class="card__desc">{{ card.desc }}</p>
         </div>
-        <p class="card__desc">{{ card.desc }}</p>
       </div>
     </div>
   </div>
@@ -195,6 +198,14 @@ export default {
 
 .card:hover .card__img img {
   filter: contrast(1.8), grayscale(100%);
+}
+
+.title {
+  margin-top: 80px;
+  margin-bottom: 80px;
+  font-size: 32px;
+  font-family: Oswald, Arial, sans-serif;
+  font-weight: bold;
 }
 
 </style>
