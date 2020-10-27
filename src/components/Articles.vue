@@ -103,16 +103,16 @@ export default {
 
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  grid-auto-rows: minmax(340px, max-content);
+  grid-auto-rows: minmax(360px, max-content);
 
   justify-content: space-between;
-  grid-row-gap: 120px;
+  grid-row-gap: 100px;
   grid-column-gap: 60px;
 }
 
 .card {
   min-width: 240px;
-  min-height: 300px;
+  min-height: 360px;
   display: flex;
   flex-direction: column;
 }
@@ -120,6 +120,7 @@ export default {
 .card:hover {
   cursor: pointer;
   box-shadow: inset 0 -3px 0 #f29591;
+  transition: all 0.1s ease;
 }
 
 .card__img {
@@ -189,7 +190,7 @@ export default {
 
 .card:hover .overlay {
   opacity: 0.5;
-  transition: all 0.15s linear;
+  transition: all 0.15s ease;
 }
 
 .card:hover .card__img img {
