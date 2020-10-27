@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import About from "@/components/About";
 import Articles from "@/components/Articles";
 import Search from "@/components/films/Search";
+import List from "@/components/films/List";
 
 Vue.use(VueRouter);
 
@@ -32,7 +33,7 @@ const routes = [
       {
         path: "/films/list",
         name: "FilmsList",
-        component: Articles
+        component: List
       },
       {
         path: "/films/recommendations",

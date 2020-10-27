@@ -3,20 +3,20 @@
     <p class="search__title">Поиск по фильмотеке</p>
     <el-input placeholder="Начните вводить название, автора или ключевые слова"
               v-model="input">
-      <el-button slot="append" icon="el-icon-search"></el-button>
+      <el-button slot="append" icon="el-icon-search" @click="findFilms"></el-button>
     </el-input>
     <div class="search__examples">Например,
       <el-button type="text"
                  style="margin-left: 0"
-                 @click="input = 'Годар'">Годар</el-button>,
+                 @click="input = 'модернизм'">модернизм</el-button>,
       <el-button type="text"
                  style="margin-left: 0"
-                 @click="input = 'модернизм'">модернизм</el-button> или
+                 @click="input = 'Годар'">Годар</el-button> или
       <el-button type="text"
                  style="margin-left: 0"
                  @click="input = 'ручная камера'">ручная камера</el-button>
     </div>
-    <p class="search__comment">В нашей фильмотеке более 200 фильмов! Обязательно что-нибудь найдется:)</p>
+    <p class="search__comment">{{ commentText }}</p>
   </div>
 
 </template>
@@ -26,7 +26,13 @@ export default {
   name: "Search",
   data() {
     return {
-      input: null
+      input: null,
+      commentText: 'В нашей фильмотеке более 200 фильмов! Обязательно что-нибудь найдется:)'
+    }
+  },
+  methods: {
+    findFilms() {
+      this.commentText = 'Ничего не нашлось :('
     }
   }
 }
