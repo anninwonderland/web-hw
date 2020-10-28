@@ -16,9 +16,14 @@
           <template slot="title">Фильмы</template>
           <el-menu-item index="films/search">Поиск</el-menu-item>
           <el-menu-item index="films/list">Каталог</el-menu-item>
-          <el-menu-item index="films/recommendations">Рекомендательная система</el-menu-item>
+          <el-menu-item index="films/random">Рекомендательная система</el-menu-item>
         </el-submenu>
         <el-menu-item index="producers">Режиссеры</el-menu-item>
+        <el-submenu index="other">
+          <template slot="title">Разное</template>
+          <el-menu-item index="other/calc">Калькулятор</el-menu-item>
+          <el-menu-item index="other/test">Тест</el-menu-item>
+        </el-submenu>
         <el-menu-item index="contacts">Контакты</el-menu-item>
       </el-menu>
     </el-col>

@@ -99,6 +99,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .section {
   min-width: 100%;
   min-height: 100%;
@@ -154,15 +155,15 @@ export default {
 .card__desc {
   font-family: Roboto, Arial, sans-serif;
   font-weight: normal;
-  font-size: 15px;
-  line-height: 18px;
+  font-size: 16px;
+  line-height: 19px;
 
-  color: #696969;
   margin: 20px 0 0;
   text-align: justify;
-  word-wrap: break-word;
+  word-break: break-word;
   hyphens: auto;
-  overflow-wrap: break-word;
+
+  text-indent: 32px;
 }
 
 .card__tags {

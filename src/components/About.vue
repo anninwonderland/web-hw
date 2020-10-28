@@ -8,6 +8,13 @@
     <p class="caption">
       Мы&nbsp;рассказываем самыми разными способами о&nbsp;фильмах, истории их создания, режиссерах и&nbsp;других любопытных нюансах, то&nbsp;есть о&nbsp;самом интересном в&nbsp;мире.
     </p>
+    <p class="title-xs">Карта проекта</p>
+    <mindmap
+        class="mindmap-wrp"
+        :nodes="nodes"
+        :connections="connections"
+        :editable="false"
+    />
     <p class="title-xs">Команда</p>
     <div class="wrapper">
       <div class="team" v-for="(man, index) in team">
@@ -30,6 +37,123 @@ export default {
 name: "About",
   data() {
   return {
+    nodes: [
+      {
+        "text": "🌊 New Wave",
+        "fx": 0,
+        "fy": 0,
+        "note": "",
+      },
+      {
+        "text": "👀 О проекте",
+        "fx": 140,
+        "fy": 200,
+        "note": ""
+      },
+      {
+        "text": "📚 Статьи",
+        "fx": -140,
+        "fy": 200,
+        "note": ""
+      },
+      {
+        "text": "🎬 Фильмы",
+        "fx": -260,
+        "fy": 0,
+        "note": ""
+      },
+      {
+        "text": "🧑‍🎓 Режиссёры",
+        "fx": -140,
+        "fy": -200,
+        "note": ""
+      },
+      {
+        "text": "🐼 Разное",
+        "fx": 260,
+        "fy": 0,
+        "note": ""
+      },
+      {
+        "text": "💌 Контакты",
+        "fx": 140,
+        "fy": -200,
+        "note": ""
+      },
+      {
+        "text": "🔭 Поиск",
+        "note": ""
+      },
+      {
+        "text": "📃 Каталог",
+        "fx": -480,
+        "fy": 0,
+        "note": ""
+      },
+      {
+        "text": "🍭 Рекоммендации",
+        // "fx": -13.916222252976013,
+        // "fy": -659.1641376795345,
+        "note": ""
+      },
+      {
+        "text": "🛒 Калькулятор",
+        "fx": 380,
+        "fy": -170,
+        "note": ""
+      },{
+        "text": "🗝 Тесты",
+        // "fx": -13.916222252976013,
+        // "fy": -659.1641376795345,
+        "note": ""
+      },
+    ],
+    connections: [
+      {
+        "source": "🌊 New Wave",
+        "target": "👀 О проекте",
+      },
+      {
+        "source": "🌊 New Wave",
+        "target": "📚 Статьи",
+      },
+      {
+        "source": "🌊 New Wave",
+        "target": "🎬 Фильмы",
+      },
+      {
+        "source": "🌊 New Wave",
+        "target": "🧑‍🎓 Режиссёры",
+      },
+      {
+        "source": "🌊 New Wave",
+        "target": "🐼 Разное",
+      },
+      {
+        "source": "🌊 New Wave",
+        "target": "💌 Контакты",
+      },
+      {
+        "source": "🎬 Фильмы",
+        "target": "🔭 Поиск",
+      },
+      {
+        "source": "🎬 Фильмы",
+        "target": "📃 Каталог",
+      },
+      {
+        "source": "🎬 Фильмы",
+        "target": "🍭 Рекоммендации",
+      },
+      {
+        "source": "🐼 Разное",
+        "target": "🛒 Калькулятор",
+      },
+      {
+        "source": "🐼 Разное",
+        "target": "🗝 Тесты",
+      }
+    ],
     team: [
       {
         name: 'Александр Борзенко',
@@ -112,5 +236,9 @@ name: "About",
 }
 .item_txt {
   margin-left: 20px;
+}
+.mindmap-wrp {
+  width: 80%;
+  margin-left: 10%;
 }
 </style>

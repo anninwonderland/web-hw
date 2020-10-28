@@ -1,31 +1,20 @@
 <template>
   <div class="list">
     <p class="list__title">Фильмы новой волны</p>
-
-    <div class="list__wrapper">
-      <div class="list__item" v-for="(film, index) in films">
-        <img class="film__img" :src="require(`@/assets/img/films/${index + 1}.jpg`)">
-        <div class="film">
-          <p class="film__title">{{ film.title }}</p>
-          <div class="film__tags">
-            <el-button v-for="tag in film.tags" type="text" >#{{tag.label}}</el-button>
-          </div>
-          <p class="film__prop">Страна: <span class="film__value">{{ film.country }}</span></p>
-          <p class="film__prop">Год: <span class="film__value">{{ film.year }}</span></p>
-          <p class="film__prop film__prop--last">Режиссер: <span class="film__value">{{ film.producer[0].name }}</span></p>
-
-          <p class="film__desc" v-for="desc in film.desc">{{ desc }}</p>
-
-        </div>
-
-      </div>
-    </div>
+    <el-carousel :autoplay="false" type="card" height="60vh">
+      <el-carousel-item v-for="(item, index) in films" :key="index">
+        <h3 class="title">{{ item.title }}</h3>
+        <p class="producer">{{item.producer[0].name}}</p>
+        <p class="year">{{item.year}}</p>
+        <img class="list__img" :src="require(`@/assets/img/films/${index + 1}.jpg`)">
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <script>
 export default {
-name: "List",
+name: "Random",
   data() {
     return {
       films: [
@@ -145,9 +134,8 @@ name: "List",
 </script>
 
 <style scoped lang="scss">
-
 .list {
-  margin-bottom: 140px;
+  margin-bottom: 60px;
   &__title {
     margin-top: 80px;
     font-size: 32px;
@@ -178,52 +166,24 @@ name: "List",
   }
 }
 
-.film {
-  width: 100%;
-  margin-left: 60px;
-  padding: 10px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  &__img {
-    width: 220px;
-    height: auto;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-  &__title {
-    margin: 0;
-    font-size: 24px;
-    font-family: Oswald, Arial, sans-serif;
-    font-weight: bold;
-  }
-  &__tags {
-    margin-bottom: 16px;
-
-  }
-  &__prop {
-    font-weight: bold;
-    margin: 0 0 10px;
-    &--last {
-      margin-bottom: 24px;
-    }
-  }
-  &__value {
-    font-weight: normal;
-  }
-  &__desc {
-    width: 90%;
-    font-size: 16px;
-    line-height: 22px;
-    white-space: pre-line;
-    text-indent: 32px;
-
-    text-align: justify;
-
-    margin-top: 8px;
-    margin-bottom: 0px;
-  }
+.list__img {
+  object-fit: contain;
+  height: calc(100% - 70px);
+  width: auto;
+}
+.producer {
+  color: #ED6862;
+  margin: 6px 0 0;
+}
+.year {
+  margin: 6px 0 12px;
 }
 
+.title {
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 6px;
+  font-weight: bold;
+
+}
 </style>

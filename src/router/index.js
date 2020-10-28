@@ -5,8 +5,11 @@ import About from "@/components/About";
 import Articles from "@/components/Articles";
 import Search from "@/components/films/Search";
 import List from "@/components/films/List";
+import Random from "@/components/films/Random";
 import Producers from "@/components/Producers";
 import Contacts from "@/components/Contacts";
+import Calc from "@/components/other/Calc";
+import Test from "@/components/other/Test";
 
 Vue.use(VueRouter);
 
@@ -38,14 +41,24 @@ const routes = [
         component: List
       },
       {
-        path: "/films/recommendations",
-        name: "FilmsRecommendations",
-        component: Articles
+        path: "/films/random",
+        name: "FilmsRandom",
+        component: Random
       },
       {
         path: "/producers",
         name: "Producers",
         component: Producers
+      },
+      {
+        path: "/other/calc",
+        name: "Calc",
+        component: Calc
+      },
+      {
+        path: "/other/test",
+        name: "Test",
+        component: Test
       },
       {
         path: "/contacts",
