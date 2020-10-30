@@ -172,6 +172,7 @@ name: "Random",
   width: auto;
 }
 .producer {
+  font-size: 15px;
   color: #ED6862;
   margin: 6px 0 0;
 }
@@ -180,7 +181,7 @@ name: "Random",
 }
 
 .title {
-  font-size: 16px;
+  font-size: 18px;
   margin-top: 0;
   margin-bottom: 6px;
   font-weight: bold;
