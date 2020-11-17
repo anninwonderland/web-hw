@@ -6,6 +6,7 @@
         <h3 class="title">{{ item.title }}</h3>
         <p class="producer">{{item.producer[0].name}}</p>
         <p class="year">{{item.year}}</p>
+        <el-rate v-model="item.rate"></el-rate>
         <img class="list__img" :src="require(`@/assets/img/films/${index + 1}.jpg`)">
       </el-carousel-item>
     </el-carousel>
@@ -21,6 +22,7 @@ name: "Random",
         {
           title: 'На последнем дыхании',
           year: 1960,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Жан-Люк Годар' }
@@ -35,6 +37,7 @@ name: "Random",
         {
           title: 'Жюль и Джим',
           year: 1962,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Франсуа Трюффо' }
@@ -49,6 +52,7 @@ name: "Random",
         {
           title: 'Банда аутсайдеров',
           year: 1964,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Жан-Люк Годар' }
@@ -63,6 +67,7 @@ name: "Random",
         {
           title: 'Две или три вещи, которые я знаю о ней',
           year: 1966,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Жан-Люк Годар' }
@@ -77,6 +82,7 @@ name: "Random",
         {
           title: 'Четыреста ударов',
           year: 1959,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Франсуа Трюффо' }
@@ -91,6 +97,7 @@ name: "Random",
         {
           title: 'Любовники',
           year: 1958,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Луи Маль' }
@@ -105,6 +112,7 @@ name: "Random",
         {
           title: 'Хиросима, моя любовь',
           year: 1959,
+          rate: null,
           country: 'Франция, Япония',
           producer: [
             { name: 'Ален Рене' }
@@ -118,6 +126,7 @@ name: "Random",
         {
           title: 'Жить своей жизнью',
           year: 1962,
+          rate: null,
           country: 'Франция',
           producer: [
             { name: 'Жан-Люк Годар' }

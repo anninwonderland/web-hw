@@ -2,20 +2,36 @@
   <div class="producer">
     <p class="producer__title">Режиссёры новой волны</p>
 
-    <div class="producer__wrapper">
-      <div class="producer__item" v-for="(card, index) in producers">
-        <img class="card__img" :src="require(`@/assets/img/producers/${index + 1}.jpg`)">
-        <div class="card">
-          <p class="card__title">{{ card.name }}</p>
-          <p class="card__caption">{{ card.nameEn }}</p>
-          <div class="card__separator"></div>
-          <p class="card__prop">{{ card.years }}</p>
-          <p class="card__prop card__counter">Фильмы: <span class="card__value">{{ card.filmsCounter }}</span></p>
-
+    <el-tabs v-model="name" >
+      <el-tab-pane label="Режиссеры" name="Producers">
+        <div class="producer__wrapper">
+          <div class="producer__item" v-for="(card, index) in producers">
+            <img class="card__img" :src="require(`@/assets/img/producers/${index + 1}.jpg`)">
+            <div class="card">
+              <p class="card__title">{{ card.name }}</p>
+              <p class="card__caption">{{ card.nameEn }}</p>
+              <div class="card__separator"></div>
+              <p class="card__prop">{{ card.years }}</p>
+              <p class="card__prop card__counter">Фильмы: <span class="card__value">{{ card.filmsCounter }}</span></p>
+            </div>
+          </div>
         </div>
+      </el-tab-pane>
+      <el-tab-pane label="История" name="Timeline">
+        <el-timeline :reverse="false" style="width: 60%; margin-left: 20%">
+          <el-timeline-item placement="top" v-for="(activity, index) in activities">
+            <el-card>
+              <p>{{activity.timestamp}}</p>
+              <img style="width: 220px;height: auto;-webkit-filter: grayscale(100%);filter: grayscale(100%);" :src="require(`@/assets/img/articles/${index + 1}.png`)">
+              <h4>{{activity.content}}</h4>
+            </el-card>
+          </el-timeline-item>
+        </el-timeline>
+      </el-tab-pane>
 
-      </div>
-    </div>
+    </el-tabs>
+
+
   </div>
 </template>
 
@@ -24,6 +40,7 @@ export default {
   name: "Producers",
   data() {
     return {
+      name: 'Producers',
       producers: [
         {
           name: 'Жан-Люк Годар',
@@ -67,7 +84,29 @@ export default {
           years: '21 марта 1920 — 11 января 2010',
           filmsCounter: 76,
         },
-      ]
+      ],
+      activities: [{
+        content: 'Посредством критики и интерпретаций пионеры французской новой волны заложили фундамент для концептов, которые позже были объединены в кинематографическую теорию под названием «Теория авторского кино».',
+        timestamp: '1970-04-15'
+      }, {
+        content: '«Красавчик Серж» Клода Шаброля считается первым фильмом новой волны',
+        timestamp: '1958-01-12'
+      }, {
+        content: 'Первый коммерческий успех, фильм "Четыреста ударов" Франсуа Трюфо',
+        timestamp: '1959-05-11'
+      }, {
+        content: 'Выходит фильм на последнем дыхании (реж. Жан-Люк Годар)',
+        timestamp: '1960-11-02'
+      }, {
+        content: 'Жить своей жизнью режиссера Жан-Люк Годара выходит в свет',
+        timestamp: '1962-05-10'
+      }, {
+        content: 'журнал Cahiers du cinéma («Кайе дю синема»), кото­рый считался, вер­нее говоря, теперь считается, штабом и цитаделью именно кинематографа «новой волны», применил это выражение — «новая волна» — к кинематографу.',
+        timestamp: '1962-11-23'
+      }, {
+        content: '«Новая волна» кончилась к 1963 году, потому что ее предали Годар, Шаброль, Трюффо, который тоже ушел в студийную систему производства. ',
+        timestamp: '1963-03-21'
+      }]
     }
   }
 }

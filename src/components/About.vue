@@ -19,7 +19,15 @@
     <div class="wrapper">
       <div class="team" v-for="(man, index) in team">
         <div class="item">
-          <img class="img" :src="require(`@/assets/img/producers/${index+1}.jpg`)">
+          <el-popover
+              placement="bottom-start"
+              :title="man.name"
+              width="200"
+              trigger="click"
+              :content="man.desc">
+            <img class="img" slot="reference" :src="require(`@/assets/img/producers/${index+1}.jpg`)">
+          </el-popover>
+
           <div class="item_txt">
             <p class="text_bold">{{man.name}}</p>
             <p class="text_light">{{ man.position }}</p>
@@ -157,23 +165,28 @@ name: "About",
     team: [
       {
         name: 'Александр Борзенко',
-        position: 'Главный редактор'
+        position: 'Главный редактор',
+        desc: 'borzenkoa@gmail.com'
       },
       {
         name: 'Павел Алексеев',
-        position: 'Арт-директор'
+        position: 'Арт-директор',
+        desc: 'alekseev.p.a@gmail.com'
       },
       {
         name: 'Юлия Глухова',
-        position: 'Дизайнер'
+        position: 'Дизайнер',
+        desc: 'gluchova@gmail.com'
       },
       {
         name: 'Андрей Усенко',
-        position: 'Разработка'
+        position: 'Разработка',
+        desc: 'ysenko@gmail.com'
       },
       {
         name: 'Роман Левин',
-        position: 'Социальные сети'
+        position: 'Социальные сети',
+        desc: 'levin.r@gmail.com'
       },
 
     ]
@@ -221,6 +234,7 @@ name: "About",
   height: 58px;
   border-radius: 50%;
   object-fit: cover;
+  cursor: pointer;
 }
 .text_bold {
   margin-top: 0px;
