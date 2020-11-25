@@ -200,5 +200,13 @@ export default {
     border-right: 1px solid #696969;
   }
 
+  .header__info {
+    margin-top: 15px;
+    & .header__profile__btn {
+      width: 100%;
+      text-align: start;
+    }
+  }
+
 }
 </style>
