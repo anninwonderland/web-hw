@@ -206,4 +206,28 @@ name: "Footer"
 
   }
 }
+
+@media (max-width: 768px) {
+  .footer__content__item {
+    width: 100%;
+    &:nth-child(1) {
+      width: 45%;
+      margin-bottom: 40px;
+    }
+    &:nth-child(2) {
+      width: 45%;
+      margin-bottom: 40px;
+    }
+  }
+   .footer__content__item--right {
+     align-items: stretch;
+   }
+  .header__social {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+}
 </style>

@@ -102,6 +102,7 @@ name: "Test",
             this.points += 1
           }
         })
+        if (this.points === 0) { this.points = 1}
       }
     }
   }
@@ -154,6 +155,13 @@ name: "Test",
 @media (max-width: 1000px) {
   .card__img {
     max-width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .card__img {
+    width: 70%;
+    max-width: 90%;
   }
 }
 </style>

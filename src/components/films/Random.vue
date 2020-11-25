@@ -1,13 +1,14 @@
 <template>
   <div class="list">
     <p class="list__title">Фильмы новой волны</p>
-    <el-carousel :autoplay="false" type="card" height="60vh">
+    <el-carousel :autoplay="false" type="card" class="carousel" height="60vh">
       <el-carousel-item v-for="(item, index) in films" :key="index">
         <h3 class="title">{{ item.title }}</h3>
         <p class="producer">{{item.producer[0].name}}</p>
         <p class="year">{{item.year}}</p>
-        <el-rate v-model="item.rate"></el-rate>
+        <el-rate class="hidden-xs-only" v-model="item.rate"></el-rate>
         <img class="list__img" :src="require(`@/assets/img/films/${index + 1}.jpg`)">
+        <el-rate class="hidden-sm-and-up" style="margin-top: 10px" v-model="item.rate"></el-rate>
       </el-carousel-item>
     </el-carousel>
   </div>
@@ -195,5 +196,21 @@ name: "Random",
   margin-bottom: 6px;
   font-weight: bold;
 
+}
+
+@media (max-width: 768px) {
+  .list__img {
+    object-fit: contain;
+    height: 260px;
+    width: auto;
+  }
+  .title {
+    font-size: 14px;
+  }
+  .producer {
+    font-size: 13px;
+    color: #ED6862;
+    margin: 6px 0 0;
+  }
 }
 </style>

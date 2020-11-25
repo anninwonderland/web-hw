@@ -1,46 +1,81 @@
 <template>
-  <el-row type="flex" class="header">
-    <el-col :span="12" :offset="3">
-      <div class="header__logo">
-        <img class="header__logo__img" src="../assets/img/logo.png" />
-        <p class="header__logo__caption">
-          Онлайн-издание <br />о французском кинематографе<br />периода новой
-          волны
-        </p>
-      </div>
-    </el-col>
-    <el-col :span="6">
-      <el-row>
-        <div class="header__info">
-          <div>
-            <button class="header__profile__btn">Войти</button>
-            <button class="header__profile__btn header__profile__btn--active">
-              Зарегистрироваться
-            </button>
-          </div>
+  <div>
+    <el-row type="flex" class="header">
+      <el-col :span="12" :offset="3" :xs="{offset: 3, span: 18}" :sm="{offset: 3, span: 12}">
+        <div class="header__logo">
+          <img class="header__logo__img" src="../assets/img/logo.png" />
+          <p class="header__logo__caption">
+            Онлайн-издание <br />о французском кинематографе<br />периода новой
+            волны
+          </p>
         </div>
-      </el-row>
-      <el-row>
+      </el-col>
+      <el-col :span="6" class="hidden-xs-only">
+        <el-row>
+          <div class="header__info">
+            <div>
+              <button class="header__profile__btn">Войти</button>
+              <button class="header__profile__btn header__profile__btn--active">
+                Зарегистрироваться
+              </button>
+            </div>
+          </div>
+        </el-row>
+        <el-row>
+          <div class="header__social">
+            <a
+                class="header__social__item header__social__item--inst"
+                href="https://www.instagram.com/"
+            >
+              <span>@newwave_press</span>
+            </a>
+            <a
+                class="header__social__item header__social__item--twit"
+                href="https://www.twitter.com/"
+            >
+              <div
+                  class="header__social__item__icon header__social__item__icon--twit"
+              ></div>
+              <span>@newwave_press</span>
+            </a>
+          </div>
+        </el-row>
+      </el-col>
+    </el-row>
+    <el-row class="header hidden-sm-and-up" style="margin-top: -50px; margin-bottom: -30px">
+      <el-col :span="8" :offset="2">
+          <div class="header__info">
+            <div>
+              <button class="header__profile__btn">Войти</button>
+              <button class="header__profile__btn header__profile__btn--active">
+                Зарегистрироваться
+              </button>
+            </div>
+          </div>
+      </el-col>
+      <el-col :span="10" :offset="1">
         <div class="header__social">
           <a
-            class="header__social__item header__social__item--inst"
-            href="https://www.instagram.com/"
+              class="header__social__item header__social__item--inst"
+              href="https://www.instagram.com/"
           >
             <span>@newwave_press</span>
           </a>
           <a
-            class="header__social__item header__social__item--twit"
-            href="https://www.twitter.com/"
+              class="header__social__item header__social__item--twit"
+              href="https://www.twitter.com/"
           >
             <div
-              class="header__social__item__icon header__social__item__icon--twit"
+                class="header__social__item__icon header__social__item__icon--twit"
             ></div>
             <span>@newwave_press</span>
           </a>
         </div>
-      </el-row>
-    </el-col>
-  </el-row>
+      </el-col>
+    </el-row>
+  </div>
+
+
 </template>
 
 <script>
@@ -150,5 +185,20 @@ export default {
 
 .header__social__item--twit:hover {
   background-image: url("../assets/icons/twitter_colored.svg");
+}
+
+
+@media (max-width: 768px) {
+  .header__logo__caption {
+    font-size: 17px;
+    line-height: 140%;
+  }
+  .header__logo__img {
+    width: auto;
+    max-height: 60px;
+    padding-right: 20px;
+    border-right: 1px solid #696969;
+  }
+
 }
 </style>

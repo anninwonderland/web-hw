@@ -226,4 +226,30 @@ name: "List",
   }
 }
 
+@media (max-width: 768px) {
+  .list__item {
+    display: block;
+    margin-top: 120px;
+
+  }
+  .film__img {
+    width: 80%;
+    height: auto;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  .film {
+    margin-left: 0;
+  }
+  .film__title {
+    width: 100%;
+    text-align: center;
+  }
+
+  .film__tags {
+    width: 100%;
+  }
+}
+
 </style>

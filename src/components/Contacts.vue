@@ -2,7 +2,7 @@
   <div class="contacts">
     <p class="contacts__title">Контакты</p>
     <el-row>
-      <el-col :span="10">
+      <el-col :span="10" :xs="{offset: 2, span: 20}" :sm="{offset: 0, span: 10}">
         <p class="contacts__title contacts__title__xs">Поддержка</p>
         <p style="text-align: left; font-size: 15px">Хотите задать вопрос, исправить ошибку или попасть в&nbsp;команду? Напишите нам!</p>
         <div class="contacts__social__item">
@@ -26,8 +26,8 @@
           </div>
         </div>
       </el-col>
-      <el-col :span="10" :offset="4">
-        <p class="contacts__title contacts__title__xs">Новостная рассылка</p>
+      <el-col :span="10" :offset="4" :xs="{offset: 2, span: 20}" :sm="{offset: 4, span: 10}">
+        <p class="contacts__title contacts__title__xs my-title">Новостная рассылка</p>
         <el-form ref="form" :model="form">
           <el-form-item label="Имя">
             <el-input v-model="form.name" placeholder="Жан-Люк Годар" style="width: 100%"></el-input>
@@ -90,5 +90,10 @@ name: "Contacts",
   font-size: 15px;
   text-align: left;
 }
+@media (max-width: 768px) {
+  .my-title {
+    margin-top: 40px;
+  }
 
+}
 </style>

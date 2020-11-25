@@ -195,4 +195,20 @@ export default {
   }
 }
 
+@media (max-width: 768px) {
+  .card__title, .card__caption, .card__prop {
+    text-align: start;
+    text-overflow: ellipsis;
+    width: 100%;
+  }
+  .card {
+    align-items: flex-start;
+    margin-left: 30px;
+  }
+  .card__img {
+    width: 170px;
+    height: 170px;
+  }
+}
+
 </style>
