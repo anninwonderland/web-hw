@@ -18,7 +18,7 @@
         </div>
       </el-tab-pane>
       <el-tab-pane label="История" name="Timeline">
-        <el-timeline :reverse="false" style="width: 60%; margin-left: 20%">
+        <el-timeline :reverse="false" class="timeline">
           <el-timeline-item placement="top" v-for="(activity, index) in activities">
             <el-card>
               <p>{{activity.timestamp}}</p>
@@ -27,6 +27,10 @@
             </el-card>
           </el-timeline-item>
         </el-timeline>
+      </el-tab-pane>
+      <el-tab-pane label="Визуализация" name="graphs">
+        <highcharts :options="chartOptions" class="graph" :key="1"/>
+<!--        <highcharts :options="lineChart" class="graph" :key="2"/>-->
       </el-tab-pane>
 
     </el-tabs>
@@ -41,48 +45,64 @@ export default {
   data() {
     return {
       name: 'Producers',
+      colors: ['#f29591', '#ed6862', '#f6b3b0', '#f9d1cf', '#f6b3b0',
+         '#f9d1cf', '#f29591'],
       producers: [
         {
           name: 'Жан-Люк Годар',
           nameEn: 'Jean-Luc Godard',
           years: '3 декабря 1930 – сейчас',
           filmsCounter: 75,
+          first: 1957,
+          last: 2008
         },
         {
           name: 'Клод Шаброль',
           nameEn: 'Claude Chabrol',
           years: '24 июня 1930 – 12 сентября 2010',
           filmsCounter: 164,
+          first: 1959,
+          last: 2009
         },
         {
           name: 'Франсуа Трюффо',
           nameEn: 'François Roland Truffaut',
           years: '6 февраля 1932 – 21 октября 1984',
           filmsCounter: 74,
+          first: 1954,
+          last: 1983
         },
         {
           name: 'Жак Деми',
           nameEn: 'Jacques Demy',
           years: '5 июня 1931 — 27 октября 1990',
           filmsCounter: 31,
+          first: 1961,
+          last: 1988
         },
         {
           name: 'Ален Рене',
           nameEn: 'Alain Resnais',
           years: '3 июня 1922 — 1 марта',
           filmsCounter: 68,
+          first: 1959,
+          last: 1992
         },
         {
           name: 'Жак Риветт',
           nameEn: 'Jacques Rivette',
           years: '1 марта 1928 — 29 января 2016',
           filmsCounter: 43,
+          first: 1960,
+          last: 2009
         },
         {
           name: 'Эрик Ромер',
           nameEn: 'Éric Rohmer',
           years: '21 марта 1920 — 11 января 2010',
           filmsCounter: 76,
+          first: 1970,
+          last: 2001
         },
       ],
       activities: [{
@@ -106,7 +126,167 @@ export default {
       }, {
         content: '«Новая волна» кончилась к 1963 году, потому что ее предали Годар, Шаброль, Трюффо, который тоже ушел в студийную систему производства. ',
         timestamp: '1963-03-21'
-      }]
+      }],
+      chartOptions: {
+        title: {
+          text: ''
+        },
+        chart: {
+          height: 360,
+          zoomType: undefined,
+          resetZoomButton: {
+            position: {
+              align: 'left',
+              x: 10
+            }
+          }
+        },
+        credits: {
+          enabled: false
+        },
+        yAxis: {
+          title: {
+            text: 'Число фильмов'
+          },
+          labels: {
+            enabled: false
+          }
+        },
+        xAxis: {
+          categories: [],
+          title: {
+            text: 'Режиссеры'
+          }
+        },
+        tooltip: {
+          formatter: function () {
+            return '<b>' + this.point.name + '</b><br/>' +
+                this.point.y + ' фильмов';
+          }
+        },
+        legend: {
+          width: '90%', // to prevent overflow
+          enabled: true,
+          verticalAlign: 'top',
+          y: -5,
+          x: -30
+        },
+        series: [{
+          type: 'column',
+          showInLegend: false,
+          allowPointSelect: false,
+          dataLabels: {
+            enabled: false,
+          },
+          data: [],
+        }],
+      },
+      // lineChart: {
+      //   title: {
+      //     text: ''
+      //   },
+      //   chart: {
+      //     height: 360,
+      //     zoomType: undefined,
+      //     resetZoomButton: {
+      //       position: {
+      //         align: 'left',
+      //         x: 10
+      //       }
+      //     }
+      //   },
+      //   credits: {
+      //     enabled: false
+      //   },
+      //   yAxis: {
+      //     title: {
+      //       text: 'Число фильмов'
+      //     }
+      //   },
+      //   xAxis: {
+      //     categories: [],
+      //     title: {
+      //       text: 'Режиссеры'
+      //     }
+      //   },
+      //   tooltip: {
+      //     formatter: function () {
+      //       return '<b>' + this.point.name + '</b><br/>' +
+      //           this.point.y + ' фильмов';
+      //     }
+      //   },
+      //   legend: {
+      //     width: '90%', // to prevent overflow
+      //     enabled: true,
+      //     verticalAlign: 'top',
+      //     y: -5,
+      //     x: -30
+      //   },
+      //   series: [{
+      //     type: 'column',
+      //     showInLegend: false,
+      //     allowPointSelect: false,
+      //     dataLabels: {
+      //       enabled: false,
+      //     },
+      //     data: [],
+      //   }],
+      // },
+    }
+  },
+  created() {
+    this.buildChart()
+  },
+  methods: {
+    buildChart() {
+      const series = []
+      this.producers.forEach((i, index) => {
+        const data = {
+          type: 'column',
+          showInLegend: false,
+          name: i.name,
+          color: this.colors[index],
+          y:i.filmsCounter
+        }
+
+        series.push(data)
+      })
+
+      this.chartOptions.series[0].data = series
+      this.chartOptions.chart.zoomType = 'x'
+      this.chartOptions.xAxis.minRange = 3
+
+
+      // this.buildLine()
+    },
+    buildLine() {
+      const series1 = []
+      const series2 = []
+
+      this.producers.forEach((i, index) => {
+        const data = {
+          type: 'line',
+          showInLegend: false,
+          name: i.name,
+          color: this.colors[index],
+          y: i.first
+        }
+        const data2 = {
+          type: 'line',
+          showInLegend: false,
+          name: i.name,
+          color: this.colors[index],
+          y: i.last
+        }
+        series1.push(data)
+        series2.push(data2)
+      })
+      this.chartOptions.series[0].data = series1
+      this.chartOptions.series[1].data = series2
+
+      this.lineChart.chart.zoomType = 'x'
+      this.lineChart.xAxis.minRange = 3
+
     }
   }
 }
@@ -195,6 +375,15 @@ export default {
   }
 }
 
+.timeline {
+  width: 60%;
+  margin-left: 20%;
+}
+.graph {
+  margin-top: 45px;
+  max-width: 80%;
+  margin-left: 10%;
+}
 @media (max-width: 768px) {
   .card__title, .card__caption, .card__prop {
     text-align: start;
@@ -208,6 +397,15 @@ export default {
   .card__img {
     width: 170px;
     height: 170px;
+  }
+  .timeline {
+    width: 80%;
+    margin-left: 0%;
+  }
+  .graph {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
   }
 }
 

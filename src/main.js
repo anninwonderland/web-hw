@@ -14,9 +14,23 @@ import './assets/main.scss'
 import VueMindmap from 'vue-mindmap'
 import 'vue-mindmap/dist/vue-mindmap.css'
 
+import Highcharts from 'highcharts'
+import HighchartsVue from 'highcharts-vue'
+
 Vue.config.productionTip = false;
 Vue.use(ElementUI);
 Vue.use(VueMindmap)
+Highcharts.setOptions({
+  lang: {
+    resetZoom: 'Вернуть'
+  }
+})
+
+
+Vue.use(HighchartsVue, {
+  highcharts: Highcharts
+})
+
 
 
 new Vue({
