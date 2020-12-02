@@ -55,7 +55,7 @@
         <div class="mydiv">
           <span style="width: 30%; text-align: left">Титры: </span><el-input placeholder="мин" size="small" class="input" v-model="titry"></el-input>
         </div>
-        <el-button type="primary" size="medium" style="width: 100%" @click="calc2">Рассчитать</el-button>
+        <el-button type="primary" size="medium" style="width: 100%; margin-top: 52px" @click="calc2">Рассчитать</el-button>
         <p>Длительность: {{result2}}</p>
 
       </div>

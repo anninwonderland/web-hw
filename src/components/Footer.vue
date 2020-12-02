@@ -29,7 +29,7 @@
             <span>@newwave_press</span>
           </a>
         </div>
-        <p class="footer_copyright">Анна Ракина(с) Москва, 2020</p>
+        <p class="footer_copyright">COPYRIGHT 2020, Анна Ракина</p>
       </div>
     </div>
   </footer>
