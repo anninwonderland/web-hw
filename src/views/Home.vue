@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+  <div style="min-height: 100vh">
+    <Header />
+    <Navigation />
+    <el-row>
+      <el-col :span="18" :offset="3">
+        <router-view></router-view>
+      </el-col>
+    </el-row>
+    <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from "@/components/HelloWorld.vue";
+import Navigation from "@/components/Navigation.vue";
+import Header from "@/components/Header.vue";
+import Footer from "@/components/Footer";
 
 export default {
   name: "Home",
   components: {
-    HelloWorld
+    Header,
+    Navigation,
+    Footer
   }
 };
 </script>
